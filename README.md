@@ -13,12 +13,15 @@ This simulation models the real-world customer journey inside the KFC outlet at 
 
 ## Project Files
 
-| File | Description |
-|---|---|
-| `KFC_V2.alp` | Version 2 — baseline model with core customer flow logic, arrival rates, and service desk layout |
-| `KFC_V3.alp` | Version 3 — refined model with improved parameters, updated layout, and enhanced data collection |
+| File | Description | Status |
+|---|---|---|
+| `KFC_V2.alp` | Version 2 — early baseline model; **map layout ratio is incorrect** | ⚠️ Deprecated |
+| `KFC_V3.alp` | Version 3 — original layout with individual seats; **individual seat logic is incorrect** | ⚠️ Deprecated |
+| `KFC_V4_normal.alp` | Version 4 — **before** adding kiosks; customers grouped by table (correct grouping logic) | ✅ Baseline |
+| `KFC_V4_kiosk.alp` | Version 4 — **after** adding 2 kiosks; used for the business case comparison | ✅ Latest |
 
-Both files are **AnyLogic Project (`.alp`)** files and must be opened individually in AnyLogic.
+> **KFC V4 is the current and recommended version.** V2 and V3 are kept for reference only.
+> All files are **AnyLogic Project (`.alp`)** files and must be opened individually in AnyLogic.
 
 ---
 
@@ -43,9 +46,11 @@ Download and install AnyLogic from the official website:
 ### 2. Open a Model File
 1. Launch **AnyLogic**.
 2. Go to **File → Open**.
-3. Navigate to this project folder and select either:
-   - `KFC_V2.alp` — to run the baseline model
-   - `KFC_V3.alp` — to run the latest refined model
+3. Navigate to this project folder and select the appropriate file:
+   - `KFC_V4_normal.alp` — **before kiosks** (V4 baseline, recommended starting point)
+   - `KFC_V4_kiosk.alp` — **after kiosks** (V4 with 2 kiosks, for business case comparison)
+   - `KFC_V3.alp` — original layout (individual seats — known issues, reference only)
+   - `KFC_V2.alp` — earliest version (incorrect map ratio, reference only)
 4. Click **Open**.
 
 ### 3. Run the Simulation
@@ -71,15 +76,42 @@ Download and install AnyLogic from the official website:
 
 ## Version Differences
 
-| Feature | V2 | V3 |
-|---|---|---|
-| Core customer flow | ✓ | ✓ |
-| Arrival schedule | Basic | Refined |
-| Layout accuracy | ✓ | ✓ (updated) |
-| Data collection | Basic | Enhanced |
-| Parameter tuning | Initial | Calibrated |
+| Feature | V2 | V3 | V4 Normal | V4 Kiosk |
+|---|---|---|---|---|
+| Core customer flow | ✓ | ✓ | ✓ | ✓ |
+| Map layout ratio | ❌ Wrong | ✓ | ✓ | ✓ |
+| Customer grouping | Individual | Individual ❌ | By table ✓ | By table ✓ |
+| Kiosk scenario | ✗ | ✗ | ✗ (before) | ✓ (after) |
+| Recommended for use | Reference only | Reference only | Baseline | Business case |
 
-It is recommended to use **V3** for analysis and **V2** as a baseline reference.
+> **Use V4 files for all analysis.** V2 and V3 are archived for academic reference only.
+
+---
+
+## Business Case — Adding 2 Self-Service Kiosks
+
+The V4 simulation was used to evaluate the financial impact of installing 2 kiosks at KFC Chamchuri Square.
+
+### Simulation Results
+
+| Metric | Before (V4 Normal) | After (V4 Kiosk) |
+|---|---|---|
+| Walkout Rate | 32.94% | 15.74% |
+| Customers Recovered | — | ~47 persons |
+
+### Revenue & ROI
+
+| Item | Value |
+|---|---|
+| Revenue per head | 128 THB |
+| Average group size | 1–4 persons (avg ~2) |
+| Average spend per group | ~256 THB |
+| Revenue saved (47 groups × 256 THB) | **12,032 THB / period** |
+| Kiosk investment cost | 120,000 THB |
+| Store-level operating profit margin | 15% |
+| **Estimated ROI breakeven** | **~66 days** |
+
+> Adding 2 kiosks reduces the walkout rate by ~17 percentage points, recovering approximately 47 customer groups per period and breaking even on the hardware investment in roughly **66 days** at a 15% operating margin.
 
 ---
 
