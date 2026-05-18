@@ -11,6 +11,20 @@ This simulation models the real-world customer journey inside the KFC outlet at 
 
 ---
 
+## KFC Store Layout
+
+<img width="551" height="570" alt="image" src="https://github.com/user-attachments/assets/77962a8f-fc84-4152-986a-4c580304d53f" />
+
+---
+Normal Case 
+https://youtu.be/_i0VTB0HJIk
+
+2 Kiosk Added Case
+https://youtu.be/T_tw66pky3k
+
+<img width="1144" height="559" alt="image" src="https://github.com/user-attachments/assets/de7b7934-8fd8-41a0-a486-cc4daddb0b48" />
+
+---
 ## Project Files
 
 | File | Description | Status |
